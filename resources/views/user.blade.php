@@ -16,14 +16,7 @@
             <th>Mobile</th>
             <th>Company</th>
         </tr>
-        @foreach($data as $value)
-        <tr>
-            <td>{{ $value->id }}</td>
-            <td>{{ $value->name }}</td>
-            <td>{{ $value->getnumber->number }}</td>
-            <td>{{ $value->company->name }}</td>
-        </tr>
-        @endforeach 
+         
     </table>
  </div>   
 </body>
