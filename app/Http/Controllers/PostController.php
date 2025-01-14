@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Company;
-class CompanyController extends Controller
+use App\Models\Post;
+class PostController extends Controller
 {
     public function index(){
-        $data=Company::with('user')->get();
-        
+        $data=Post::with('user')->get();
         return $data;
     }
 }
