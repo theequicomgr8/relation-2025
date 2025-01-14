@@ -9,6 +9,7 @@ class CompanyController extends Controller
 {
     public function index(){
         $data=Company::with('user')->get();
+        
         return $data;
     }
 }
