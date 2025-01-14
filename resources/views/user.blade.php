@@ -13,13 +13,15 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Role</th>
+            <th>Mobile</th>
+            <th>Company</th>
         </tr>
         @foreach($data as $value)
         <tr>
-            <td>{{$value->id}}</td>
-            <td>{{$value->name}}</td>
-            <td>{{$value->concatenated_roles }}</td>
+            <td>{{ $value->id }}</td>
+            <td>{{ $value->name }}</td>
+            <td>{{ $value->getnumber->number }}</td>
+            <td>{{ $value->company->name }}</td>
         </tr>
         @endforeach 
     </table>

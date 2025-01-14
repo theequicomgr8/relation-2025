@@ -6,7 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Role;
+use App\Models\Company;
+use App\Models\PhoneNumber;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -46,14 +47,11 @@ class User extends Authenticatable
         ];
     }
 
-    public function getrole(){
-        return $this->belongsToMany(Role::class,'user_roles','user_id','role_id');
+    public function getnumber(){
+        return $this->hasOneThrough(PhoneNumber::class,Company::class,'user_id','company_id');
     }
 
-    public function getConcatenatedRolesAttribute()
-    {
-        return $this->getrole()->pluck('role')->implode(', ');
+    public function company(){
+        return $this->hasOne(Company::class,'user_id','id');
     }
-
-    
 }
